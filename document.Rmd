@@ -1,0 +1,25 @@
+# Hello Knitr documentation
+
+## Test for knitr using library
+# Save the Rmd file as document.Rmd first then use following to generate html file as following
+Here is a code chunk
+```{r sumulate, echo=FALSE}
+set.seed(1)
+x <- rnorm(100)
+mean(x)
+```
+
+# Making the Tables with xtable
+## Introduction
+```{r}
+library(datasets)
+data("airquality")
+fit <- lm(Ozone ~ Wind + Temp + Solar.R, data = airquality)
+```
+
+Here is a table of regression coefficients.
+```{r}
+library(xtable)
+xt <- xtable(summary(fit))
+print(xt)
+```
